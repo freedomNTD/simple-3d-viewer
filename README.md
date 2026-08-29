@@ -29,6 +29,18 @@ glb-peek --screenshot out.png model.glb   # render ~10 frames, save an image, ex
 glb-peek --selftest model.glb             # smoke test: assert the model is visible
 ```
 
+## Supported formats
+
+| Format | Support |
+|--------|---------|
+| GLB / glTF | ✅ best (materials, multi-mesh, node transforms) |
+| OBJ | ✅ geometry + materials when embedded; external `.mtl`/textures are not resolved |
+| STL | ✅ binary & ASCII |
+| 3MF | ✅ |
+| FBX, DAE, USD(Z), BLEND, 3DS | ❌ not planned for now — these need heavyweight SDKs |
+
+Geometry-only files (e.g. Hunyuan3D GLB exports) get a neutral clay material and computed normals.
+
 Works best with self-contained `.glb` files (e.g. exported from Hunyuan3D, Meshy, Blender). `.gltf` files that reference external `.bin`/textures are not resolved.
 
 ## Build

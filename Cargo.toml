@@ -1,8 +1,8 @@
 [package]
 name = "glb-peek"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
-description = "A tiny GLB/glTF viewer written in Rust — double-click a model, orbit around, done."
+description = "A tiny GLB/glTF/OBJ/STL/3MF viewer written in Rust — double-click a model, orbit around, done."
 license = "MIT"
 repository = "https://github.com/freedomNTD/glb-peek"
 keywords = ["gltf", "glb", "viewer", "3d", "wgpu"]
@@ -10,7 +10,7 @@ categories = ["graphics", "rendering", "command-line-utilities"]
 
 [dependencies]
 three-d = "0.19"
-three-d-asset = { version = "0.10", features = ["gltf"] }
+three-d-asset = { version = "0.10", features = ["gltf", "obj", "stl", "3mf"] }
 image = { version = "0.25", default-features = false, features = ["png"] }
 rfd = "0.15"
 

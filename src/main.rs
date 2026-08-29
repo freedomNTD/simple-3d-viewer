@@ -37,7 +37,7 @@ async fn run() -> Result<(), String> {
     let path = match path {
         Some(p) => p,
         None => match rfd::FileDialog::new()
-            .add_filter("glTF models", &["glb", "gltf"])
+            .add_filter("3D models", &["glb", "gltf", "obj", "stl", "3mf"])
             .set_title("Pick a model to peek at")
             .pick_file()
         {
