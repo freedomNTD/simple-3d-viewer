@@ -16,14 +16,14 @@ jobs:
       matrix:
         include:
           - os: windows-latest
-            artifact: glb-peek-windows-x64.exe
-            bin: glb-peek.exe
+            artifact: simple-3d-viewer-windows-x64.exe
+            bin: simple-3d-viewer.exe
           - os: ubuntu-latest
-            artifact: glb-peek-linux-x64
-            bin: glb-peek
+            artifact: simple-3d-viewer-linux-x64
+            bin: simple-3d-viewer
           - os: macos-latest
-            artifact: glb-peek-macos-arm64
-            bin: glb-peek
+            artifact: simple-3d-viewer-macos-arm64
+            bin: simple-3d-viewer
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4

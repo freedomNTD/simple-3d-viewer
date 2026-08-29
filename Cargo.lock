@@ -730,17 +730,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "glb-peek"
-version = "0.2.0"
-dependencies = [
- "image",
- "rfd",
- "three-d",
- "three-d-asset",
- "tokio",
-]
-
-[[package]]
 name = "glow"
 version = "0.17.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1857,6 +1846,17 @@ name = "simd-adler32"
 version = "0.3.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3a219298ac11a56ea9a6d2120044824d6f01aeb034955e7af7bc16858527deea"
+
+[[package]]
+name = "simple-3d-viewer"
+version = "0.2.1"
+dependencies = [
+ "image",
+ "rfd",
+ "three-d",
+ "three-d-asset",
+ "tokio",
+]
 
 [[package]]
 name = "slab"

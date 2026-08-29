@@ -1,4 +1,4 @@
-# glb-peek
+# simple-3d-viewer
 
 A tiny GLB/glTF viewer written in Rust. Double-click a model, orbit around, done.
 
@@ -8,7 +8,7 @@ A tiny GLB/glTF viewer written in Rust. Double-click a model, orbit around, done
 
 ## Why
 
-Existing Rust glTF viewers are mostly stale experiments; native options on Windows are heavy (Blender) or missing (no 3D Viewer on LTSC). `glb-peek` is one small binary that opens a GLB and lets you look at it — nothing more.
+Existing Rust glTF viewers are mostly stale experiments; native options on Windows are heavy (Blender) or missing (no 3D Viewer on LTSC). `simple-3d-viewer` is one small binary that opens a GLB and lets you look at it — nothing more.
 
 ## Features
 
@@ -23,10 +23,10 @@ Existing Rust glTF viewers are mostly stale experiments; native options on Windo
 ## Usage
 
 ```sh
-glb-peek model.glb                        # open a model
-glb-peek                                  # open a file dialog
-glb-peek --screenshot out.png model.glb   # render ~10 frames, save an image, exit
-glb-peek --selftest model.glb             # smoke test: assert the model is visible
+simple-3d-viewer model.glb                        # open a model
+simple-3d-viewer                          # open a file dialog
+simple-3d-viewer --screenshot out.png model.glb   # render ~10 frames, save an image, exit
+simple-3d-viewer --selftest model.glb             # smoke test: assert the model is visible
 ```
 
 ## Supported formats
@@ -47,7 +47,7 @@ Works best with self-contained `.glb` files (e.g. exported from Hunyuan3D, Meshy
 
 ```sh
 cargo build --release
-# binary at target/release/glb-peek(.exe)
+# binary at target/release/simple-3d-viewer(.exe)
 ```
 
 Requires the usual Rust prerequisites (on Windows: MSVC Build Tools).

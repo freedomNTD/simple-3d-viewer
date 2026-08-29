@@ -1,6 +1,6 @@
-//! glb-peek — a tiny GLB/glTF viewer written in Rust.
+//! simple-3d-viewer — a tiny GLB/glTF/OBJ/STL/3MF viewer written in Rust.
 //!
-//! Usage: `glb-peek [model.glb]` (no argument opens a file dialog).
+//! Usage: `simple-3d-viewer [model.glb]` (no argument opens a file dialog).
 //!
 //! Controls: drag = orbit · right-drag = pan · scroll = zoom
 //!           W = wireframe · Space = auto-rotate · Esc = quit
@@ -90,7 +90,7 @@ async fn run() -> Result<(), String> {
 
     let window = Window::new(WindowSettings {
         title: format!(
-            "glb-peek — {file_name} ({verts} verts / {tris} tris)  [W wireframe · Space spin · Esc quit]"
+            "simple-3d-viewer — {file_name} ({verts} verts / {tris} tris)  [W wireframe · Space spin · Esc quit]"
         ),
         min_size: (900, 640),
         ..Default::default()
