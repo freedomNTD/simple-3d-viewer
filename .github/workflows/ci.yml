@@ -14,10 +14,13 @@ jobs:
         include:
           - os: windows-latest
             artifact: glb-peek-windows-x64.exe
+            bin: glb-peek.exe
           - os: ubuntu-latest
             artifact: glb-peek-linux-x64
+            bin: glb-peek
           - os: macos-latest
             artifact: glb-peek-macos-arm64
+            bin: glb-peek
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -37,7 +40,7 @@ jobs:
 
       - name: Rename artifact
         shell: bash
-        run: cp target/release/glb-peek* "${{ matrix.artifact }}"
+        run: cp "target/release/${{ matrix.bin }}" "${{ matrix.artifact }}"
 
       - uses: actions/upload-artifact@v4
         with:
