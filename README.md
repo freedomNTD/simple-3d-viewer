@@ -18,7 +18,7 @@ Existing Rust glTF viewers are mostly stale experiments; native options on Windo
 - File dialog when launched without arguments; PBR materials and multi-mesh models supported
 - Geometry-only GLBs (e.g. from Hunyuan3D) get a neutral clay material and computed normals, instead of the glTF metallic default that renders near-black without an environment map
 - Headless-friendly extras: `--screenshot out.png` renders the model to an image from the GPU framebuffer, `--selftest` verifies the model actually reached the pixels (CI-friendly smoke test)
-- Lightweight: `wgpu`-based via [three-d](https://github.com/asny/three-d), no runtime dependencies
+- Lightweight: plain OpenGL via [three-d](https://github.com/asny/three-d), no runtime dependencies beyond GPU drivers
 
 ## Usage
 
