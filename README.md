@@ -1,6 +1,6 @@
 # simple-3d-viewer
 
-A tiny GLB/glTF viewer written in Rust. Double-click a model, orbit around, done.
+A tiny GLB/glTF/OBJ/STL/3MF viewer written in Rust. Double-click a model, orbit around, done.
 
 <p align="center">
   <img src="docs/screenshot.png" width="80%">
@@ -27,7 +27,11 @@ simple-3d-viewer model.glb                        # open a model
 simple-3d-viewer                          # open a file dialog
 simple-3d-viewer --screenshot out.png model.glb   # render ~10 frames, save an image, exit
 simple-3d-viewer --selftest model.glb             # smoke test: assert the model is visible
+simple-3d-viewer --register                       # (Windows) make this the default for .glb/.gltf/.obj/.stl/.3mf
+simple-3d-viewer --unregister                     # remove those associations
 ```
+
+After `--register`, double-clicking a model file in Explorer opens it in the viewer directly.
 
 ## Supported formats
 
@@ -54,7 +58,13 @@ Requires the usual Rust prerequisites (on Windows: MSVC Build Tools).
 
 ## 中文简介
 
-用 Rust 写的极简 GLB/glTF 查看器：打开即自动取景，鼠标拖拽旋转/平移/缩放，`W` 线框、`Space` 自动旋转、`Esc` 退出。不带参数启动会弹文件选择框。最适合查看 Hunyuan3D 等工具导出的自包含 `.glb` 模型。
+用 Rust 写的极简 3D 模型查看器：打开即自动取景，鼠标拖拽旋转/平移/缩放。双击 .glb 文件即可打开，也可拖模型进窗口、修改文件后热重载。`W` 线框、`Space` 自动旋转、`R` 重置相机、`O` 打开其他、`H` 帮助、`Esc` 退出。
+
+## Usage / 使用（Windows）
+
+1. 下载或构建出 `simple-3d-viewer.exe`
+2. 双击 exe（不带参数）会弹文件选择框；把模型拖进窗口、或 `simple-3d-viewer model.glb` 直接打开
+3. 运行一次 `simple-3d-viewer --register`，之后双击任意 `.glb/.gltf/.obj/.stl/.3mf` 文件即可打开；错误会以弹框提示而不是闪退
 
 ## License
 

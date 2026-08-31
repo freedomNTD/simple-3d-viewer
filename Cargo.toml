@@ -1,6 +1,6 @@
 [package]
 name = "simple-3d-viewer"
-version = "0.2.1"
+version = "0.3.0"
 edition = "2021"
 description = "A tiny GLB/glTF/OBJ/STL/3MF viewer written in Rust — double-click a model, orbit around, done."
 license = "MIT"
@@ -13,9 +13,6 @@ three-d = "0.19"
 three-d-asset = { version = "0.10", features = ["gltf", "obj", "stl", "3mf"] }
 image = { version = "0.25", default-features = false, features = ["png"] }
 rfd = "0.15"
-
-[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 
 [profile.release]
 lto = "thin"
