@@ -41,6 +41,11 @@ jobs:
       - name: Build
         run: cargo build --release
 
+      - name: Test
+        # parse-level regression tests (no GPU needed), incl. the textured-GLB
+        # guard — v0.3.0 shipped unable to open any GLB with embedded textures
+        run: cargo test --release
+
       - name: Rename artifact
         shell: bash
         run: cp "target/release/${{ matrix.bin }}" "${{ matrix.artifact }}"
