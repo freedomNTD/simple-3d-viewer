@@ -1,16 +1,16 @@
 [package]
 name = "simple-3d-viewer"
-version = "0.3.0"
+version = "0.3.1"
 edition = "2021"
 description = "A tiny GLB/glTF/OBJ/STL/3MF viewer written in Rust — double-click a model, orbit around, done."
 license = "MIT"
 repository = "https://github.com/freedomNTD/simple-3d-viewer"
-keywords = ["gltf", "glb", "viewer", "3d", "wgpu"]
+keywords = ["gltf", "glb", "viewer", "3d", "opengl"]
 categories = ["graphics", "rendering", "command-line-utilities"]
 
 [dependencies]
 three-d = "0.19"
-three-d-asset = { version = "0.10", features = ["gltf", "obj", "stl", "3mf"] }
+three-d-asset = { version = "0.10", features = ["gltf", "image", "obj", "stl", "3mf"] }
 image = { version = "0.25", default-features = false, features = ["png"] }
 rfd = "0.15"
 

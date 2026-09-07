@@ -155,6 +155,30 @@ fn run(selftest: bool, screenshot: Option<String>, path: Option<String>) -> Resu
         // --- input ---
         redraw |= a.camera.set_viewport(frame_input.viewport);
         a.viewport = frame_input.viewport;
+
+        // right-drag pan — three-d's OrbitControl only implements orbit and
+        // zoom, so pan is handled here first and the event marked consumed
+        for event in frame_input.events.iter_mut() {
+            if let Event::MouseMotion { delta, button: Some(MouseButton::Right), handled, .. } = event {
+                if !*handled {
+                    let distance = a.camera.position().distance(a.camera.target());
+                    // world units per screen pixel at the target distance,
+                    // keeping the pan 1:1 with the cursor (vertical fov = 45°,
+                    // see fit_camera; 0.8284 = 2·tan(22.5°))
+                    let speed = distance * 0.8284 / frame_input.viewport.height.max(1) as f32;
+                    let forward = (a.camera.target() - a.camera.position()).normalize();
+                    let right = forward.cross(a.camera.up()).normalize();
+                    let up = a.camera.up();
+                    let shift = right * (-delta.0 as f32 * speed) + up * (delta.1 as f32 * speed);
+                    let position = a.camera.position() + shift;
+                    let target = a.camera.target() + shift;
+                    a.camera.set_view(position, target, up);
+                    *handled = true;
+                    redraw = true;
+                }
+            }
+        }
+
         redraw |= a.control.handle_events(&mut a.camera, &mut frame_input.events);
 
         for event in frame_input.events.iter() {
